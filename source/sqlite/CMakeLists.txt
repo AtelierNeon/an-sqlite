@@ -55,8 +55,11 @@ endif ()
 add_library (${SQLITE_LIB_NAME} ${SQLITE_LIB_SHARED_TYPE}
     ${SQLITE_LIB_SRCS})
 set_target_properties (${SQLITE_LIB_NAME} PROPERTIES
-    COMPILE_FLAGS "-DSQLITE_API=__declspec(dllexport)"
     OUTPUT_NAME sqlite3)
+if (WIN32)
+    set_target_properties (${SQLITE_LIB_NAME} PROPERTIES
+        COMPILE_FLAGS "-DSQLITE_API=__declspec(dllexport)")
+endif ()
 install (TARGETS ${SQLITE_LIB_NAME}
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
