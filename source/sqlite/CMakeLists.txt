@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 3.1.0...3.15.0)
 
-PROJECT (sqlite LANGUAGES C VERSION "3.29.0" )
+PROJECT (sqlite LANGUAGES C VERSION "3.29.0")
 
 ## Separate version number into 4 parts
 string (REGEX MATCHALL "[0-9]+" _my_ver_LIST "${PROJECT_VERSION}")
